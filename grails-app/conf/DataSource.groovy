@@ -1,7 +1,8 @@
 dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
-    dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+    //dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+	dialect = "mine.ImprovedMySQLDialect"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -19,7 +20,7 @@ environments {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost/mine?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "aluno"
+            password = "caima19"
         }
     }
     test {
@@ -27,7 +28,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/mine?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "aluno"
+            password = "caima19"
         }
     }
     production {
@@ -35,7 +36,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/mine?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "aluno"
+            password = "caima19"
 
         }
     }

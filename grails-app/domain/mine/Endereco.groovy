@@ -18,17 +18,4 @@ class Endereco {
 	Pessoa pessoa
 	static belongsTo = [pessoa:Pessoa]
 
-    static constraints = {
-		/*tipoLogradouro nullable:false, blank:false
-		logradouro nullable:false, blank:false
-		numero nullable:false, blank:false
-		bairro nullable:false, blank:false
-		estado nullable:false, blank:false
-		cidade nullable:false, blank:false
-		cep nullable:true, blank:true
-		complemento nullable:true
-		referencia nullable:true
-		
-		pessoa nullable:false*/
-    }
 }

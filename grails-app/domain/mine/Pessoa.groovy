@@ -9,9 +9,6 @@ class Pessoa {
 	static hasOne = [endereco: Endereco]
 
 
-    static constraints = {
-		/*ativo nullable:false*/
-    }
 	
 	static mapping = {
 		tablePerHierarchy false
