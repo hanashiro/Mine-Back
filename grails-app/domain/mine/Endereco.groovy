@@ -18,6 +18,7 @@ class Endereco {
 	Pessoa pessoa
 	static belongsTo = [pessoa:Pessoa]
 
+<<<<<<< HEAD
     static constraints = {
 		tipoLogradouro nullable:false, blank:false
 		logradouro nullable:false, blank:false
@@ -32,4 +33,6 @@ class Endereco {
 		referencia nullable:true, blank:true		
 		pessoa nullable:false
     }
+=======
+>>>>>>> 153c8dcdf0aa06c32a592fc206c5af4437eaf8ff
 }

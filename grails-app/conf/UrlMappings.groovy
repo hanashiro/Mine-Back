@@ -44,7 +44,7 @@ class UrlMappings {
 		}
 		
 		"/fornecedor" (resources:'fornecedor')
-		"/fornecedor/porNome" {
+		"/fornecedor/nome/$nome" {
 			controller = 'fornecedor'
 			action = [GET: 'buscaPorNome']
 		}

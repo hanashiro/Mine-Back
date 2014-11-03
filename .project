@@ -26,7 +26,11 @@
 		<link>
 			<name>.link_to_grails_plugins</name>
 			<type>2</type>
+<<<<<<< HEAD
 			<location>C:/Users/Carol/Documents/GitHub/Mine-Back/target/work/plugins</location>
+=======
+			<location>C:/Users/Felipe/Desktop/Projeto Mine/Mine-Back/target/work/plugins</location>
+>>>>>>> 153c8dcdf0aa06c32a592fc206c5af4437eaf8ff
 		</link>
 	</linkedResources>
 </projectDescription>
