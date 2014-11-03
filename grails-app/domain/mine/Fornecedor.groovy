@@ -17,9 +17,10 @@ class Fornecedor extends Pessoa {
 	}
 	
     static constraints = {
-		/*razao nullable:false, blank:false
+		razao nullable:true, blank:true
 		nomeFantasia blank:false , nullable:false
+		inscricaoEstadual blank:true,  nullable:true
 		inscricaoMunicipal blank:true,  nullable:true
-		cnpj blank:false, nullable:false*/
+		cnpj blank:false, nullable:false
     }
 }

@@ -63,5 +63,25 @@ class UrlMappings {
 			controller = 'fornecedor'
 			action = [PUT: 'desativar']
 		}
+		
+		"/categoria/buscaPorNome/$nome"{
+			controller = 'categoria'
+			action = [GET: 'buscaPorNome']
+		}
+		
+		"/categoria/cadastrar"(parseRequest:true) {
+			controller = 'categoria'
+			action = [POST: 'cadastrar']
+		}
+		
+		"/categoria/alterar" {
+			controller = 'categoria'
+			action = [PUT: 'alterar']
+		}
+		
+		"/categoria/desativar" {
+			controller = 'categoria'
+			action = [PUT: 'desativar']
+		}
 	}
 }

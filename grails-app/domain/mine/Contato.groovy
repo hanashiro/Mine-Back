@@ -7,15 +7,13 @@ class Contato {
 	String tipo
 	String contato
 	String categoria
-	Pessoa pessoa
-	
+	Pessoa pessoa	
 	static belongsTo = [pessoa:Pessoa]
 	
     static constraints = {
 		tipo nullable:false, blank:false
 		contato nullable:false, blank:false
-		categoria nullable:false, blank:false
-		
+		categoria nullable:false, blank:false		
 		pessoa nullable:false
     }
 	

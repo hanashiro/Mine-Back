@@ -22,8 +22,8 @@ class FornecedorController extends RestfulController<Fornecedor> {
 			response.status = 200
 			render fornecedor as JSON
 		}else{
-		response.status = 400
-		render fornecedor.errors as JSON
+			response.status = 400
+			render fornecedor.errors as JSON
 		}
 	}
 	

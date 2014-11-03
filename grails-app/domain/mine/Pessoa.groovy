@@ -10,7 +10,7 @@ class Pessoa {
 
 
     static constraints = {
-		/*ativo nullable:false*/
+		ativo nullable:false
     }
 	
 	static mapping = {
