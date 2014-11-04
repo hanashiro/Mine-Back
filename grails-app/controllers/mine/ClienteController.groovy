@@ -43,6 +43,7 @@ class ClienteController extends RestfulController<Cliente>{
 			cliente.properties = params
 			if(cliente.save(flush: true)){
 				response.status = 200
+				render cliente as JSON
 			}else{
 				response.status = 400
 				render cliente.errors as JSON
@@ -53,9 +54,10 @@ class ClienteController extends RestfulController<Cliente>{
 	def desativar(){
 		def cliente = Cliente.get(params.id)
 		if(cliente){
-			cliente.ativo = false
+			cliente.ativo = !cliente.ativo
 			if(cliente.save(flush: true)){
 				response.status = 200
+				render cliente as JSON
 			}else{
 				response.status = 400
 				render cliente.errors as JSON

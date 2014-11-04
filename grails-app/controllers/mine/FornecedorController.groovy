@@ -33,6 +33,7 @@ class FornecedorController extends RestfulController<Fornecedor> {
 			fornecedor.properties = params
 			if(fornecedor.save(flush: true)){
 				response.status = 200
+				render fornecedor as JSON
 			}else{
 				response.status = 400
 				render fornecedor.errors as JSON
@@ -43,9 +44,10 @@ class FornecedorController extends RestfulController<Fornecedor> {
 	def desativar(){
 		def fornecedor = Fornecedor.get(params.id)
 		if(fornecedor){
-			fornecedor.ativo = false
+			fornecedor.ativo = !fornecedor.ativo
 			if(fornecedor.save(flush: true)){
 				response.status = 200
+				render fornecedor as JSON
 			}else{
 				response.status = 400
 				render fornecedor.errors as JSON

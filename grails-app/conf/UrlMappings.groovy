@@ -83,5 +83,36 @@ class UrlMappings {
 			controller = 'categoria'
 			action = [PUT: 'desativar']
 		}
+		
+		"/produto" (resources:'produto')
+		"/produto/nome/$nome" {
+			controller = 'produto'
+			action = [GET: 'buscaPorNome']
+		}
+		
+		"/produto/cadastrar"(parseRequest:true) {
+			controller = 'produto'
+			action = [POST: 'cadastrar']
+		}
+		
+		"/produto/alterar" {
+			controller = 'produto'
+			action = [PUT: 'alterar']
+		}
+		
+		"/produto/desativar" {
+			controller = 'produto'
+			action = [PUT: 'desativar']
+		}
+		
+		"/produto/cdbarras/$cdbarras" {
+			controller = 'produto'
+			action = [GET: 'buscaPorCodigoBarras']
+		}
+		
+		"/produto/estoque" {
+			controller = 'produto'
+			action = [GET: 'buscaPorEstoque']
+		}
 	}
 }

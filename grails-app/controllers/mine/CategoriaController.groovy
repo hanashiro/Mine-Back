@@ -32,6 +32,7 @@ class CategoriaController extends RestfulController<Categoria> {
 			categoria.properties = params
 			if(categoria.save(flush:true)){
 				response.status = 200
+				render categoria as JSON
 			} else {
 				response.status = 400
 				render categoria.errors as JSON
@@ -42,9 +43,10 @@ class CategoriaController extends RestfulController<Categoria> {
 	def desativar() {
 		def categoria = Categoria.get(params.id)
 		if (categoria){
-			categoria.ativo = false
+			categoria.ativo = !categoria.ativo
 			if(categoria.save(flush:true)){
 				response.status = 200
+				render categoria as JSON
 			} else {
 				response.status = 400
 				render categoria.errors as JSON
