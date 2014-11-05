@@ -20,7 +20,7 @@ environments {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost/mine?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "123"
+            password = "caima19"
         }
     }
     test {
@@ -28,7 +28,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/mine?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "123"
+            password = "caima19"
         }
     }
     production {
@@ -36,7 +36,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost/mine?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "123"
+            password = "caima19"
 
         }
     }

@@ -21,6 +21,6 @@ class Fornecedor extends Pessoa {
 		nomeFantasia blank:false , nullable:false
 		inscricaoEstadual blank:true,  nullable:true
 		inscricaoMunicipal blank:true,  nullable:true
-		cnpj blank:false, nullable:false
+		cnpj blank:true, nullable:true
     }
 }

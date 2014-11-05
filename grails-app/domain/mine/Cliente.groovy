@@ -12,7 +12,7 @@ class Cliente extends Pessoa {
 	
     static constraints = {
 		nome nullable:false, blank:false
-		sexo nullable:false, blank:false, inList: ["feminino","masculino"]
+		sexo nullable:false, blank:false, inList: ["F","M"]
 		aniversario nullable:true, blank:true
 		anotacao nullable:true, blank:true
 		cpf nullable:true, blank:true		

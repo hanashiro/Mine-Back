@@ -11,8 +11,8 @@ class FornecedorController extends RestfulController<Fornecedor> {
 		super(Fornecedor)
 	}
 	
-	def buscaPorNome(String nome){
-		def fornecedores = Fornecedor.findAllByNomeFantasiaIlike("%" + nome + "%")
+	def buscaPorNome(){
+		def fornecedores = Fornecedor.findAllByNomeFantasiaIlike("%" + params.nome + "%")
 		render fornecedores as JSON
 	}
 	
