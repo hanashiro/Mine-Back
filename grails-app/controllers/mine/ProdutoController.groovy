@@ -39,9 +39,10 @@ class ProdutoController extends RestfulController<Produto> {
 	}
 	
 	def alterar(){
+		def jsonObj = request.JSON
 		def produto = Produto.get(params.id)
 		if(produto){
-			produto.properties = params
+			produto.properties = jsonObj.params
 			if(produto.save(flush: true)){
 				response.status = 200
 				render produto as JSON

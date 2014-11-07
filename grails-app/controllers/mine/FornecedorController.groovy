@@ -28,9 +28,10 @@ class FornecedorController extends RestfulController<Fornecedor> {
 	}
 	
 	def alterar(){
+		def jsonObj = request.JSON
 		def fornecedor = Fornecedor.get(params.id)
 		if(fornecedor){
-			fornecedor.properties = params
+			fornecedor.properties = jsonObj.params
 			if(fornecedor.save(flush: true)){
 				response.status = 200
 				render fornecedor as JSON

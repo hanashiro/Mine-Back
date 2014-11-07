@@ -38,9 +38,10 @@ class ClienteController extends RestfulController<Cliente>{
 	}
 	
 	def alterar(){
+		def jsonObj = request.JSON
 		def cliente = Cliente.get(params.id)
 		if(cliente){
-			cliente.properties = params
+			cliente.properties = jsonObj.params
 			if(cliente.save(flush: true)){
 				response.status = 200
 				render cliente as JSON
