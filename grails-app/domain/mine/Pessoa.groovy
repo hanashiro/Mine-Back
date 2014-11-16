@@ -5,14 +5,10 @@ import grails.rest.*
 class Pessoa {
 	
 	Boolean ativo
-	static hasMany = [contatos: Contato]
+	static hasMany = [contato: Contato]
 	static hasOne = [endereco: Endereco]
 
     static constraints = {
 		ativo nullable:false
     }
-	
-	static mapping = {
-		tablePerHierarchy false
-	}
 }

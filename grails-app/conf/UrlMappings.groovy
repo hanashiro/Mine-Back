@@ -43,7 +43,7 @@ class UrlMappings {
 			action = [GET: 'buscaPorTelefone']
 		}
 		
-		"/fornecedor" (resources:'fornecedor')
+		"/fornecedor"(resources:'fornecedor')
 		"/fornecedor/nome/$nome" {
 			controller = 'fornecedor'
 			action = [GET: 'buscaPorNome']

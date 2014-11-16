@@ -13,7 +13,7 @@ class Fornecedor extends Pessoa {
 	
 	static mapping = {
 		discriminator value: "FORNECEDOR"
-		sort "nome"
+		sort "nomeFantasia"
 	}
 	
     static constraints = {
