@@ -40,10 +40,11 @@ class ProdutoController extends RestfulController<Produto> {
 	
 	def alterar(){
 		def jsonObj = request.JSON
-		def produto = Produto.get(params.id)
+		def produto = Produto.get(jsonObj.id)
 		if(produto){
-			produto.properties = jsonObj.params
-			if(produto.save(flush: true)){
+			produto.properties = jsonObj
+			if(Produto.executeUpdate("Update mine.Produto set ativo=:nAtivo, categoria_id=:nCategoria, codigo_barras=:nCodigoBarras, descricao=:nDesc, estoque_minimo=:nEstoque, nome=:nNome, preco_entrada=:nPrecEnt, preco_saida=:nPrecSaida, quantidade=:nQtd where id=:nId", 
+				[nAtivo: jsonObj.ativo, nCategoria: jsonObj.categoria.id, nCodigoBarras: jsonObj.codigoBarras, nDesc: jsonObj.descricao, nEstoque: jsonObj.estoqueMinimo, nNome: jsonObj.nome, nPrecEnt: Double.valueOf(jsonObj.precoEntrada), nPrecSaida: Double.valueOf(jsonObj.precoSaida), nQtd: Double.valueOf(jsonObj.quantidade), nId: Long.valueOf(jsonObj.id)])){
 				response.status = 200
 				render produto as JSON
 			}else{
