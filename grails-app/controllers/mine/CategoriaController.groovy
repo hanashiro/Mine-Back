@@ -16,7 +16,8 @@ class CategoriaController extends RestfulController<Categoria> {
 	}
 	
 	def cadastrar() {
-		def categoria = new Categoria(params)
+		def jsonObj = request.JSON
+		def categoria = new Categoria(jsonObj)
 		if(categoria.save(flush:true)){
 			response.status = 200
 			render categoria as JSON
@@ -24,12 +25,14 @@ class CategoriaController extends RestfulController<Categoria> {
 			response.status = 400
 			render categoria.errors as JSON
 		}
+		
 	}
 	
 	def alterar() {
-		def categoria = Categoria.get(params.id)
+		def jsonObj = request.JSON
+		def categoria = Categoria.get(jsonObj.id)
 		if(categoria){
-			categoria.properties = params
+			categoria.properties = jsonObj
 			if(categoria.save(flush:true)){
 				response.status = 200
 				render categoria as JSON
