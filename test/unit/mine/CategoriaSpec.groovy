@@ -15,6 +15,14 @@ class CategoriaSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test constraints"() {
+		when:
+		def categoria = new Categoria()
+		categoria.nome = 'categoria1'
+		categoria.ativo = true
+		
+		then:
+		categoria.validate()
+		!categoria.hasErrors()		
     }
 }

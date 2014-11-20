@@ -15,6 +15,22 @@ class EnderecoSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test constraints"() {
+		when:
+		def pessoa = new Pessoa()
+		
+		def endereco = new Endereco()
+		endereco.tipoLogradouro = 'tipo'
+		endereco.logradouro = 'rua tal'
+		endereco.numero = '123'
+		endereco.zona = 'zona1'
+		endereco.bairro = 'bairro tal'
+		endereco.estado = 'sp'
+		endereco.cidade = 'lorena'
+		endereco.pessoa = pessoa
+		
+		then:
+		endereco.validate()
+		!endereco.hasErrors()		
     }
 }

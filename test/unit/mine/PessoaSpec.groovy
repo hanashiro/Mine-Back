@@ -15,6 +15,16 @@ class PessoaSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test constraints"() {
+		when:
+		def endereco = new Endereco()
+		
+		def pessoa = new Pessoa()
+		pessoa.ativo = true
+		pessoa.endereco = endereco
+		
+		then:
+		pessoa.validate()
+		!pessoa.hasErrors()		
     }
 }

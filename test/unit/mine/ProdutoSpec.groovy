@@ -15,6 +15,17 @@ class ProdutoSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test constraints"() {
+		when:
+		def categoria = new Categoria()
+		
+		def produto = new Produto()
+		produto.nome = 'produto1'
+		produto.ativo = true
+		produto.categoria = categoria
+		
+		then:
+		produto.validate()
+		!produto.hasErrors()		
     }
 }

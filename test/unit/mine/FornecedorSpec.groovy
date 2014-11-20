@@ -15,6 +15,17 @@ class FornecedorSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test constraints"() {
+		when:
+		def endereco = new Endereco()
+		
+		def fornecedor = new Fornecedor()
+		fornecedor.nomeFantasia = 'fornecedor1'
+		fornecedor.ativo = true
+		fornecedor.endereco = endereco
+		
+		then:
+		fornecedor.validate()
+		!fornecedor.hasErrors()		
     }
 }

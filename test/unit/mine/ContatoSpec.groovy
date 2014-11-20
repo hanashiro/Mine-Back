@@ -15,6 +15,18 @@ class ContatoSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test constraints"() {
+		when:
+		def pessoa = new Pessoa()
+		
+		def contato = new Contato()
+		contato.tipo = 'telefone'
+		contato.contato = '3159874521'
+		contato.categoria = 'residencial'
+		contato.pessoa = pessoa
+		
+		then:
+		contato.validate()
+		!contato.hasErrors()		
     }
 }

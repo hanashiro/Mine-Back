@@ -28,7 +28,8 @@ class ProdutoController extends RestfulController<Produto> {
 	}
 	
 	def cadastrar(){
-		def produto = new Produto(params)
+		def jsonObj = request.JSON
+		def produto = new Produto(jsonObj)
 		if(produto.save(flush: true)){
 			response.status = 200
 			render produto as JSON
