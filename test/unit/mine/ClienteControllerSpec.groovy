@@ -33,8 +33,8 @@ class ClienteControllerSpec extends Specification {
 		response.json.errors == null
 	}
 	
-	/*
-	void "test alterar"() {
+	
+	/*void "test alterar"() {
 		given:
 		def end = new Endereco(tipoLogradouro:'rua',logradouro:'rua1',numero:'123',zona:'zona1',
 			bairro:'aqui',estado:'sp',cidade:'lorena')
@@ -53,7 +53,7 @@ class ClienteControllerSpec extends Specification {
 		response.json.errors == null
 	}
 	
-	void "test desativar"() {
+	/*void "test desativar"() {
 		given:
 		def end = new Endereco(tipoLogradouro:'rua',logradouro:'rua1',numero:'123',zona:'zona1',
 			bairro:'aqui',estado:'sp',cidade:'lorena')

@@ -29,7 +29,10 @@ class ProdutoController extends RestfulController<Produto> {
 	
 	def cadastrar(){
 		def jsonObj = request.JSON
+		println jsonObj
 		def produto = new Produto(jsonObj)
+		produto.precoSaida = Double.valueOf(jsonObj.precoSaida)
+		produto.precoEntrada = Double.valueOf(jsonObj.precoEntrada)
 		if(produto.save(flush: true)){
 			response.status = 200
 			render produto as JSON
@@ -44,8 +47,14 @@ class ProdutoController extends RestfulController<Produto> {
 		def produto = Produto.get(jsonObj.id)
 		if(produto){
 			produto.properties = jsonObj
-			if(Produto.executeUpdate("Update mine.Produto set ativo=:nAtivo, categoria_id=:nCategoria, codigo_barras=:nCodigoBarras, descricao=:nDesc, estoque_minimo=:nEstoque, nome=:nNome, preco_entrada=:nPrecEnt, preco_saida=:nPrecSaida, quantidade=:nQtd where id=:nId", 
-				[nAtivo: jsonObj.ativo, nCategoria: jsonObj.categoria.id, nCodigoBarras: jsonObj.codigoBarras, nDesc: jsonObj.descricao, nEstoque: jsonObj.estoqueMinimo, nNome: jsonObj.nome, nPrecEnt: Double.valueOf(jsonObj.precoEntrada), nPrecSaida: Double.valueOf(jsonObj.precoSaida), nQtd: Double.valueOf(jsonObj.quantidade), nId: Long.valueOf(jsonObj.id)])){
+			String desc = jsonObj.descricao == "null" ? null : jsonObj.descricao 
+			String codBarras = jsonObj.codigoBarras == "null" ? null : jsonObj.codigoBarras
+			String estMin = jsonObj.estoqueMinimo == "" ? "0" : jsonObj.estoqueMinimo
+			String precEnt = jsonObj.precoEntrada == "" ? "0.0" : jsonObj.precoEntrada
+			String precSaida = jsonObj.precoSaida == "" ? "0.0" : jsonObj.precoSaida
+			String qtd = jsonObj.quantidade == "" ? "0.0" : jsonObj.quantidade
+			if(Produto.executeUpdate("Update mine.Produto set categoria_id=:nCategoria, codigo_barras=:nCodigoBarras, descricao=:nDesc, estoque_minimo=:nEstoque, nome=:nNome, preco_entrada=:nPrecEnt, preco_saida=:nPrecSaida, quantidade=:nQtd where id=:nId", 
+				[nCategoria: jsonObj.categoria.id, nCodigoBarras: codBarras, nDesc: desc, nEstoque: estMin, nNome: jsonObj.nome, nPrecEnt: Double.valueOf(precEnt), nPrecSaida: Double.valueOf(precSaida), nQtd: Double.valueOf(qtd), nId: Long.valueOf(jsonObj.id)])){
 				response.status = 200
 				render produto as JSON
 			}else{

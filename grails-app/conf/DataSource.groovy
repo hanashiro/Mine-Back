@@ -16,27 +16,29 @@ hibernate {
 // environment specific settings
 environments {
     development {
+		show_sql=true
+		loggingSql=true
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'create-drop', 'validate', ''
             url = "jdbc:mysql://localhost/mine?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "caima19"
+            password = "123"
         }
     }
     test {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:mysql://localhost/mine?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "caima19"
+            password = "123"
         }
     }
     production {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:mysql://localhost/mine?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
-            password = "caima19"
+            password = "123"
 
         }
     }
